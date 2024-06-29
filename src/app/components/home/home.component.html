@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>App Gestión</span>
+
+  <span style="flex: 1 1 auto"> </span>
+  <label style="font-size: 14px; margin-right: 20px"></label>
+  <!-- {{ username }} -->
+  <button mat-icon-button>
+    <!-- (click)="cerrarSesion()" -->
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    opened
+    mode="side"
+    style="width: 220px; background: black"
+  >
+    <mat-nav-list>
+      <mat-list-item routerLink="/">
+        <mat-icon matListItemIcon style="color: white">home</mat-icon>
+        <div matListItemTitle style="color: white">Home</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/lista-pedidos">
+        <mat-icon matListItemIcon style="color: white">location_on</mat-icon>
+        <div matListItemTitle style="color: white">Pedidos</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/lista-clientes">
+        <mat-icon matListItemIcon style="color: white">group_add</mat-icon>
+        <div matListItemTitle style="color: white">Clientes</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/lista-productos">
+        <mat-icon matListItemIcon style="color: white">work</mat-icon>
+        <div matListItemTitle style="color: white">Productos</div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div style="height: 90vh">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

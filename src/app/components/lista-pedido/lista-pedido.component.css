@@ -1,0 +1,17 @@
+.detalle-container {
+  margin-bottom: 10px; /* Espacio entre cada detalle */
+}
+
+.product-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Espacio entre los elementos de los detalles del producto */
+}
+
+.product-detail span {
+  flex: 1 1 100%; /* Cada span ocupará el 100% del ancho disponible */
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}

@@ -1,0 +1,70 @@
+<h1 class="m-2" style="margin-left: 5px">Clientes</h1>
+<div class="content">
+  <mat-card class="m-2">
+    <mat-card-title style="margin: 0 0 5px 20px"
+      ><button mat-raised-button color="primary" (click)="actualizarLista()">
+        <mat-icon mat-list-icon>refresh</mat-icon>
+      </button></mat-card-title
+    >
+
+    <mat-divider class="mt-2"></mat-divider>
+
+    <mat-card-content class="mt-2">
+      <mat-form-field style="width: 100%">
+        <!-- <mat-label>Buscar</mat-label> -->
+        <input
+          matInput
+          (keyup)="aplicarFiltroListado($event)"
+          placeholder="Filtro"
+          #input
+        />
+      </mat-form-field>
+
+      <div class="mat-elevation-z8" style="overflow-x: auto">
+        <mat-table #table class="mat-cell" [dataSource]="dataSource">
+          <ng-container matColumnDef="id">
+            <mat-header-cell mat-header-cell *matHeaderCellDef
+              >Código</mat-header-cell
+            >
+            <mat-cell *matCellDef="let aux">{{ aux.id }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="nombre">
+            <mat-header-cell mat-header-cell *matHeaderCellDef
+              >Nombre</mat-header-cell
+            >
+            <mat-cell *matCellDef="let aux">{{ aux.nombre }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="direccion">
+            <mat-header-cell mat-header-cell *matHeaderCellDef
+              >Dirección</mat-header-cell
+            >
+            <mat-cell *matCellDef="let aux">{{ aux.direccion }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="telefono">
+            <mat-header-cell mat-header-cell *matHeaderCellDef
+              >Teléfono</mat-header-cell
+            >
+            <mat-cell *matCellDef="let aux">{{ aux.telefono }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <mat-header-cell mat-header-cell *matHeaderCellDef
+              >Email</mat-header-cell
+            >
+            <mat-cell *matCellDef="let aux">{{ aux.email }}</mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let aux; columns: displayedColumns"></mat-row>
+        </mat-table>
+        <mat-paginator
+          [pageSizeOptions]="[6, 8, 10]"
+          showFirstLastButtons
+        ></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
